@@ -8,6 +8,14 @@ import hogs from "../porkers_data";
 function App() {
 	const hogsArray = hogs
 	const [showDetails, setShowDetails] = useState(false)
+	const [showGreased, setShowGreased] =  useState(false)
+
+	const handleShowGreased =hogsArray.filter((hog)=>(showGreased ? hog.greased : true))
+	function handleShowGreasedChange(e) {
+		setShowGreased(e.target.value)
+	}
+	
+
 	function handleShowDetails() {
 		console.log('clicked')
 		setShowDetails(showDetails=> !showDetails)
@@ -15,7 +23,7 @@ function App() {
 	return (
 		<div className="App">
 			<Nav />
-			<Filters />
+			<Filters handleShowGreased={handleShowGreased} handleShowGreasedChange={handleShowGreasedChange}/>
 			<Hogs hogsArray={hogsArray} handleShowDetails={handleShowDetails} showDetails={showDetails}/>
 		</div>
 	);

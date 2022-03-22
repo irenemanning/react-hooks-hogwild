@@ -1,9 +1,9 @@
 import React from "react";
 
-function Filters(){
+function Filters( { handleShowGreased, handleShowGreasedChange }){
     return(
         <div style={{margin: "80px"}}>
-            <select style={{margin: "10px"}} name="filter" id="">
+            <select onChange={handleShowGreasedChange} style={{margin: "10px"}} name="filter" id="">
                 <option value="All">All</option>
                 <option value="Greased">Greased</option>
             </select>
