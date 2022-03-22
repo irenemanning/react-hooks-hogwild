@@ -1,11 +1,8 @@
-import react from "react";
+import React from "react";
 import PigInfo from "./PigInfo";
 
-function Pig({ pig }) {
-    function displayPigInfo() {
-        console.log('clicked')
-        return(<PigInfo pig={pig} />)
-    }
+function Pig({ pig, handleShowDetails, showDetails}) {
+    
   return (
     <div style={{
             width:"400px",
@@ -14,10 +11,11 @@ function Pig({ pig }) {
             backgroundColor: "rgb(255, 230, 243)",
             border:"6px solid rgb(255, 204, 230)"
             }}
-            onClick={displayPigInfo}
+            onClick={handleShowDetails}
             >
       <h3>{pig.name}</h3>
       <img src={pig.image} width={300} height={290} alt="" />
+      {showDetails && <PigInfo pig={pig}/>}
     </div>
   );
 }

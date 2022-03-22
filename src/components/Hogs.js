@@ -1,10 +1,11 @@
-import react from "react";
+import React from "react";
 import Pig from "./Pig";
 
-function Hogs({ hogsArray }) {
-    const pigsList = hogsArray.map((pig)=> <Pig pig={pig} />)
+
+function Hogs({ hogsArray, handleShowDetails, showDetails }) {
+    const pigsList = hogsArray.map((pig)=> <Pig key={pig.name} pig={pig} handleShowDetails={handleShowDetails} showDetails={showDetails}/>)
     return(
-        <div>
+        <div className="ui grid container">
             {pigsList}
         </div>
     )
